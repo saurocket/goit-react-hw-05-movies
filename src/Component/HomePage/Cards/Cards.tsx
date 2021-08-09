@@ -6,6 +6,7 @@ import {useHistory, useLocation} from 'react-router-dom'
 import img404 from '../../../assets/404.jpg'
 import {trandsItem} from "../../../redux/trandsReducer";
 import {actions} from "../../../redux/seatchReducer";
+
 type PropsTypes = {
     cards: Array<trandsItem>
     setOpen: Dispatch<SetStateAction<boolean>>
@@ -56,10 +57,12 @@ export const Cards:React.FC<PropsTypes> = ({cards, setOpen, open}) => {
                     className={classes.card}
                 >
                     <CardMedia className={classes.cardMedia}
-                               image={`https://image.tmdb.org/t/p/original${card.poster_path}` || img404}
+                               image={`https://image.tmdb.org/t/p/original${card.poster_path}`}
                                title="Image title"
                                onClick={() => handleToggle(card.id)}
-                    />
+                   />
+
+
                     <CardContent className={classes.cardContent}>
                         <Typography variant="h6" component='h3' align="center" className={classes.title}>
                             {card.title}
